@@ -1,0 +1,222 @@
+/* CourtDetail.css */
+
+/* Global styles */
+:root {
+  --primary-color: #2c3855;
+  --primary-color-dark: #1f2940;
+  --secondary-color: #435681;
+  --text-dark: #333333;
+  --text-light: #767268;
+  --background-light: #f3f4f6;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+/* Product detail container */
+.product-detail-container {
+  display: flex;
+  flex-direction: row;
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  gap: 2rem;
+}
+
+/* Image gallery container */
+.image-gallery-container {
+  flex: 1;
+  max-width: 50%;
+  border-radius: 8px;
+  overflow: hidden;
+  
+}
+
+.image-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Product description */
+.product-description {
+  flex: 1;
+  padding: 2rem;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.product-reviews {
+  margin-bottom: 1rem;
+}
+
+.rating-container {
+  color: #ffc107; /* Star rating color */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.product-brand,
+.product-category,
+.product-sku,
+.product-icon,
+.product-price {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.product-brand span,
+.product-category span,
+.product-sku span,
+.product-price span {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.product-icon {
+  font-size: 1.5rem;
+  color: #1877f2; /* Facebook blue color */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .product-detail-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .product-description {
+    padding: 1rem;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+}
+
+/* Button styles */
+.btn-book {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  background-color: #30a33a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-book:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.btn-book:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44, 56, 85, 0.5);
+}
+
+/* Add some spacing for the product details */
+.product-description p {
+  margin-bottom: 1rem;
+}
+
+/* Add some hover effect for links */
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+.amenities-container {
+  
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.amenities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.amenity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+}
+
+.amenity-icon {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+/* Example styles for icons, replace these with actual icons or use a library like FontAwesome */
+.amenity-icon.wifi::before {
+  content: '📶';
+}
+
+.amenity-icon.motorcycle::before {
+  content: '🏍️';
+}
+
+.amenity-icon.ice-tea::before {
+  content: '🍹';
+}
+
+.amenity-icon.drink::before {
+  content: '🥤';
+}
+
+.amenity-icon.car::before {
+  content: '🚗';
+}
+
+.amenity-icon.canteen::before {
+  content: '🍽️';
+}
+
+.amenity-icon.food::before {
+  content: '🍲';
+}
