@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FcGoogle,FcPhone  } from "react-icons/fc";
 
 function SignUpForm() {
   const [state, setState] = React.useState({
@@ -36,12 +36,8 @@ function SignUpForm() {
       <form onSubmit={handleOnSubmit}>
         <h1>Create Account</h1>
         <div className="social-container">
-          <a href="#" className="social">
-            <i className="fab fa-google-plus-g" />
-          </a>
-          <a href="#" className="social">
-          <i className="fa-solid fa-phone" />
-          </a>
+        <a href="#" className="social"><FcGoogle /></a>
+          <a href="#" className="social"><FcPhone/></a>
         </div>
         <span>or use your email for registration</span>
         <input

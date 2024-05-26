@@ -64,17 +64,18 @@ const SearchList = () => {
               <p>Add date</p>
             </div>
           </form>
-          <button className="btn">
-            <NavLink to="/search"><i className="fa-solid fa-magnifying-glass"></i></NavLink>
+          <button className="search" type="submit">
+            <div id="s-circle"></div>
+            Search
           </button>
         </div>
       <div className="section__container">
       
         <section className="popular__container">
-          <h2 className="section__header">Popular Badminton Courts</h2>
+          <h2 className="section__header"></h2>
           <div className="popular__grid">
             {Courts.map((court, index) => (
-              <NavLink key={index} to={`/view/`} className="popular__card" onClick={() => window.scrollTo(0, 0)}>
+              <NavLink key={index} to={`/view/`} className="popular__card" onClick={() => window.scrollTo(0, 100)}>
                 <img src={court.image} alt={court.name} />
                 <div className="popular__content">
                   <div className="popular__card__header">

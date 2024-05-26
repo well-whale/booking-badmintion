@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SignUpForm from "./SignUp"; // Ensure SignUpForm is correctly imported
 import "../LogInAndSignUp/LogInAndSignUp.css"; 
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { FcGoogle,FcPhone  } from "react-icons/fc";
 
 function SignInForm() {
   const [state, setState] = useState({
@@ -31,8 +31,8 @@ function SignInForm() {
       <form onSubmit={handleOnSubmit}>
         <h1>Sign in</h1>
         <div className="social-container">
-          <a href="#" className="social"><i className="fab fa-google-plus-g" /></a>
-          <a href="#" className="social"><i className="fa-solid fa-phone" /></a>
+          <a href="#" className="social"><FcGoogle /></a>
+          <a href="#" className="social"><FcPhone/></a>
         </div>
         <span>or use your account</span>
         <input

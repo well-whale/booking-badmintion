@@ -97,16 +97,17 @@ const HomePage = () => {
               <p>Add date</p>
             </div>
           </form>
-          <button className="btn">
-          <NavLink to="/search"><i className="fa-solid fa-magnifying-glass" onClick={() => window.scrollTo(0, 0)}></i></NavLink>
-        </button>
+          <button className="search" type="submit">
+            <div id="s-circle"></div>
+            Search
+          </button>
         </div>
       </div>
       <section className="section__container popular__container">
         <h2 className="section__header">Popular Badminton Courts</h2>
         <div className="popular__grid" >
           {Courts.map((court, index) => (
-            <NavLink key={index} to={`/view/`} className="popular__card" onClick={() => window.scrollTo(0, 0)}>
+            <NavLink key={index} to={`/view/`} className="popular__card" onClick={() => window.scrollTo(0, 100)}>
               <img src={court.image} alt={court.name} />
               <div className="popular__content">
                 <div className="popular__card__header">

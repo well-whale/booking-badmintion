@@ -5,22 +5,18 @@ const Footer = () => {
   return (
       <div>
         <footer class="footer">
-        <div class="section__container footer__container">
+        <div class=" footer__container">
           <div class="footer__col">
-            <h3>BadmintonHub1</h3>
+            <h3>BadmintonHub</h3>
             <p>
-            BadmintonHub is a badminton court booking website that provides a seamless and convenient way to find and book at the location closest to you
-            </p>
+            BadmintonHub là trang web đặt chỗ sân cầu lông cung cấp cách thức liền mạch và thuận tiện để tìm và đặt chỗ ở địa điểm gần bạn nhất.            </p>
             <p>
-            With a user-friendly interface and many different court options, BCK hopes to bring a comfortable experience to customers looking for a badminton court.
-            </p>
+            Với giao diện thân thiện với người dùng và nhiều lựa chọn sân khác nhau, BadmintonHub hy vọng sẽ mang lại trải nghiệm thoải mái cho khách hàng đang tìm kiếm sân cầu lông.            </p>
           </div>
           <div class="footer__col">
             <h4>Company</h4>
             <p>About Us</p>
             <p>Our Team</p>
-            {/* <p>Blog</p> */}
-            <p>Book</p>
             <p>Contact Us</p>
           </div>
           <div class="footer__col">
@@ -33,7 +29,6 @@ const Footer = () => {
             <h4>Resources</h4>
             <p>Social Media</p>
             <p>Help Center</p>
-            <p>Partnerships</p>
           </div>
         </div>
         <div class="footer__bar">

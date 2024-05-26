@@ -1,6 +1,6 @@
 import React from 'react';
 import "../HomePage/HomePage.css";
-import 'bootstrap/dist/css/bootstrap.min.css';  
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { NavLink } from "react-router-dom";
 
@@ -16,12 +16,10 @@ const Header = () => {
                     <li className="link"><NavLink to="/search">Book</NavLink></li>
                     <li className="link"><NavLink to="/booked">Your Booked</NavLink></li>
                     <li className="nav-item dropdown">
-                        <ul className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Account
-                        </ul>
+                        <span className="nav-link dropdown-toggle" role="button">Account</span>
                         <ul className="dropdown-menu">
-                            <li><NavLink className="dropdown-item" to="/login">LogIn</NavLink></li>
-                            <li><NavLink className="dropdown-item" to="/">LogOut</NavLink></li>
+                            <li className="link"><NavLink to="/login">LogIn</NavLink></li>
+                            <li className="link"><NavLink to="/">LogOut</NavLink></li>
                         </ul>
                     </li>
                 </ul>
