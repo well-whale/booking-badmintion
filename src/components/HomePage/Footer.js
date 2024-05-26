@@ -7,7 +7,7 @@ const Footer = () => {
         <footer class="footer">
         <div class="section__container footer__container">
           <div class="footer__col">
-            <h3>BadmintonHub </h3>
+            <h3>BadmintonHub1</h3>
             <p>
             BadmintonHub is a badminton court booking website that provides a seamless and convenient way to find and book at the location closest to you
             </p>
