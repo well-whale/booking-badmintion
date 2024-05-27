@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import Rater from "react-rater";
+import { GiTennisCourt } from "react-icons/gi";
 import image1 from '../img/caytrac.png';
 import image2 from '../img/kienthiet.jpg';
 import image3 from '../img/trexanh.jpg';
@@ -15,30 +17,50 @@ const address = [
     "Thành phố Thủ Đức", "Bình Chánh", "Hóc Môn", "Củ Chi", "Cần Giờ", "Nhà Bè"
   ];
 
-const Courts = [
-  {
-    image: image3,
-    name: "Sân Cầu lông Tre Xanh",
-    address: "50 Xô Viết Nghệ Tĩnh, Phường 19, Bình Thạnh, Thành phố Hồ Chí Minh"
-  },
-  {
-    image: image2,
-    name: "Sân Cầu Lông Kiến Thiết",
-    address: "Khu Viso Kiến Thiết cũ, 50 Dân Chủ, Hiệp Phú, Quận 9, Thành phố Hồ Chí Minh"
-  },
-  {
-    image: image6,
-    name: "Sân cầu lông Thủy Sản",
-    address: "185 Đ. Số 1, An Lạc, Bình Tân, Thành phố Hồ Chí Minh"
-  },
-  {
-    image: image5,
-    name: "Sân Cầu Lông Thảo Trang",
-    address: "193 Đ. Lê Văn Quới, Bình Trị Đông, Bình Tân, Thành phố Hồ Chí Minh"
-  },
-  
-];
-
+  const Courts = [
+    {
+      image: image3,
+      name: "Sân Cầu lông Tre Xanh",
+      address: "Bình Thạnh, Thành phố Hồ Chí Minh",
+      subcourt: "4 sân",
+      star: "4"
+    },
+    {
+      image: image2,
+      name: "Sân Cầu Lông Kiến Thiết",
+      address: " Quận 9, Thành phố Hồ Chí Minh",
+      subcourt: "3 sân",
+      star: "5"
+    },
+    {
+      image: image6,
+      name: "Sân cầu lông Thủy Sản",
+      address: "Bình Tân, Thành phố Hồ Chí Minh",
+      subcourt: "3 sân",
+      star: "5"
+    },
+    {
+      image: image4,
+      name: "Sân cầu lông Lê Quý Đôn",
+      address: " quận 11, TPHCM",
+      subcourt: "4 sân",
+      star: "5"
+    },
+    {
+      image: image5,
+      name: "Sân Cầu Lông Thảo Trang",
+      address: "Bình Tân, Thành phố Hồ Chí Minh",
+      subcourt: "3 sân",
+      star: "4"
+    },
+    {
+      image: image1,
+      name: "Sân cầu lông Cây trắc",
+      address: " Củ Chi, Thành phố Hồ Chí Minh",
+      subcourt: "4 sân",
+      star: "5"
+    }
+  ];
 const SearchList = () => {
   return (
     <div>
@@ -73,19 +95,36 @@ const SearchList = () => {
       
         <section className="popular__container">
           <h2 className="section__header"></h2>
-          <div className="popular__grid">
-            {Courts.map((court, index) => (
-              <NavLink key={index} to={`/view/`} className="popular__card" onClick={() => window.scrollTo(0, 100)}>
-                <img src={court.image} alt={court.name} />
-                <div className="popular__content">
-                  <div className="popular__card__header">
-                    <h4>{court.name}</h4>
-                  </div>
-                  <p>{court.address}</p>
+          <div className="popular__grid" >
+          {Courts.map((court, index) => (
+            <NavLink key={index} to={`/view/`} className="popular__card" onClick={() => window.scrollTo(0, 100)}>
+              <img src={court.image} alt={court.name} />
+              <div className="popular__content">
+                <div className="popular__card__header">
+                  <h4 style={{ display: 'flex' }}>{court.name}
+                  </h4>
                 </div>
-              </NavLink>
-            ))}
-          </div>
+                <p>{court.address}</p>
+                <div class="subcourt-container">
+                  <div class="subcourt">
+                    <p class="subcourt-icon"><GiTennisCourt /></p>
+                    <p>{court.subcourt}</p>
+                  </div>
+                  <div class="rater-container">
+                    <h5>
+                      <Rater
+                        style={{ fontSize: "18px", color: "yellow", marginRight: "15px", weight: '50%' }}
+                        total={5}
+                        interactive={false}
+                        rating={court.star}
+                      />
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </NavLink>
+          ))}
+        </div>
         </section>
       </div>
     </div>

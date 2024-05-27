@@ -135,6 +135,7 @@
   left: 0;
   width: 50%;
   z-index: 2;
+  
 }
 
 .App .container.right-panel-active .sign-in-container {

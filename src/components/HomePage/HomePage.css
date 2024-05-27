@@ -167,7 +167,29 @@ nav {
   background-repeat: no-repeat;
   border-radius: 2rem;
 }
+.subcourt-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+.subcourt {
+  display: flex;
+  align-items: center;
+}
+.subcourt p {
+  margin: 0;
+}
 
+.rater-container {
+  display: flex;
+  align-items: center;
+}
+.rater {
+  font-size: 18px;
+  color: yellow;
+  margin-right: 15px;
+}
 .header__content {
   max-width: 600px;
   padding: 5rem 2rem;

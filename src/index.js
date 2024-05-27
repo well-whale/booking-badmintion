@@ -18,6 +18,7 @@ import SearchList from './components/Court/SearchList';
 import Search from './components/HomePage/Search';
 import BookedList from './components/Booked/BookedList';
 import TimeSlots from './components/time/TimeSlot';
+import CourtReview from './components/Court/CourtReview';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const Home = () => {
     return (
@@ -42,6 +43,7 @@ const Home = () => {
         <Header/>
         <ProductDetail/>
         <ListCourt/>
+        <CourtReview/>
         <Footer/>
       </>
     );
@@ -58,7 +60,6 @@ const Home = () => {
     return (
       <>
         <Header/>
-        
         <SearchList/>
         <Footer/>
       </>

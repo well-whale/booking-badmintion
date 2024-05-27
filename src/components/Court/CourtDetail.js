@@ -67,7 +67,7 @@ const ProductDetail = () => {
       </div>
 
       <div className='product'>
-        <div className="product-description">
+        <div className="amenities-container">
           <h2 className="product-title">{productDetailItem.title}<div className="rating-container">
             <div style={{ display: "flex", alignItems: "center" }}>
               <Rater
