@@ -118,7 +118,7 @@ const ProductDetail = () => {
         </div>
 
         <button className="btn-book">
-          <NavLink className="dropdown-item" to="/booking">Đặt sân</NavLink>
+          <NavLink className="dropdown-item" to="/booking"onClick={() => window.scrollTo(0, 100)}>Đặt sân</NavLink>
         </button>
       </div>
     </section>

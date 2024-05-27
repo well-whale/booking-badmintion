@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../time/TimeSlot.css"; // Import the CSS file
 
+// Function to generate time slots
 const generateTimeSlots = (startTime, endTime, interval) => {
   const timeSlots = [];
   let currentTime = startTime;
@@ -17,16 +18,35 @@ const generateTimeSlots = (startTime, endTime, interval) => {
   return timeSlots;
 };
 
+// Court details
+const courtDetail = {
+  image: "https://sonsanepoxy.vn/wp-content/uploads/2023/07/lap-dat-he-thong-den-chieu-san-cau-long.jpg",
+  title: "Sân cầu lông Tre Xanh",
+  clockStart: 5, // Start time in hours
+  clockEnd: 23, // End time in hours
+  numberofcourt: 4,
+  address: "50 Xô Viết Nghệ Tĩnh, Phường 19, Bình Thạnh, Thành phố Hồ Chí Minh",
+  phoneNumber: "03456789",
+  price: 50000, // Price per 30 minutes
+};
+
+// Function to generate area names based on the number of courts
+const generateAreas = (numCourts) => {
+  return Array.from({ length: numCourts }, (_, i) => `Sân ${i + 1}`);
+};
+
 const TimeSlots = () => {
-  const [selectedArea, setSelectedArea] = useState("Area 1");
+  const [selectedArea, setSelectedArea] = useState("Sân 1");
   const [selectedTimes, setSelectedTimes] = useState([]);
   const [firstSelected, setFirstSelected] = useState(null);
   const [timeSlots, setTimeSlots] = useState([]);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
 
   useEffect(() => {
-    const startTime = 5 * 60; // 5:00 AM
-    const endTime = 23 * 60; // 11:00 PM
-    const interval = 30; // 1 hour interval
+    const startTime = courtDetail.clockStart * 60; // 5:00 AM in minutes
+    const endTime = courtDetail.clockEnd * 60; // 11:00 PM in minutes
+    const interval = 30; // 30 minutes interval
     setTimeSlots(generateTimeSlots(startTime, endTime, interval));
   }, []);
 
@@ -38,6 +58,8 @@ const TimeSlots = () => {
     if (firstSelected === null) {
       setFirstSelected(id);
       setSelectedTimes([id]);
+      setStartTime(id);
+      setEndTime(null);
     } else {
       const newSelectedTimes = [];
       const start = Math.min(firstSelected, id);
@@ -47,8 +69,18 @@ const TimeSlots = () => {
       }
       setSelectedTimes(newSelectedTimes);
       setFirstSelected(null); // Reset firstSelected after the range is selected
+      setStartTime(start);
+      setEndTime(end);
     }
   };
+
+  const areas = generateAreas(courtDetail.numberofcourt);
+
+  const selectedTimeRange = startTime !== null && endTime !== null
+    ? `${String(Math.floor(startTime / 60)).padStart(2, "0")}:${String(startTime % 60).padStart(2, "0")} - ${String(Math.floor(endTime / 60)).padStart(2, "0")}:${String(endTime % 60).padStart(2, "0")}`
+    : '';
+
+  const totalPrice = selectedTimes.length > 0 ? ((endTime - startTime) / 60 * courtDetail.price*2) : 0;
 
   return (
     <div className="container">
@@ -66,17 +98,28 @@ const TimeSlots = () => {
         </div>
       </div>
       <div className="right-section">
-        <div className="area-selection">
-          <label>Select Area:</label>
-          <select onChange={handleAreaChange} value={selectedArea}>
-            <option value="Area 1">Area 1</option>
-            <option value="Area 2">Area 2</option>
-            <option value="Area 3">Area 3</option>
-          </select>
-        </div>
         <div className="area-info">
-          <h2>Sân Cầu Lông Kiến Thiết</h2>
-          <p>Details about {selectedArea}...</p>
+          <img src={courtDetail.image} alt={courtDetail.title} />
+          <h2>{courtDetail.title}</h2>
+          <h5>{courtDetail.address}</h5>
+          <label>
+            {selectedTimeRange}
+          </label>
+          {selectedTimeRange && (
+            <div>
+              <h5>Thành tiền: {totalPrice.toLocaleString()} VND</h5>
+            </div>
+          )}
+        </div>
+        <div className="area-selection">
+          <label>Chọn Sân:</label>
+          <select onChange={handleAreaChange} value={selectedArea}>
+            {areas.map(area => (
+              <option key={area} value={area}>
+                {area}
+              </option>
+            ))}
+          </select>
         </div>
         <button className="payment-button">
           <NavLink className="dropdown-item" to="/payment">

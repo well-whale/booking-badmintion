@@ -37,25 +37,25 @@ const LoginPopup = () => {
 
     const handleSendOTP = async () => {
         const appVerifier = window.recaptchaVerifier;
-        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-            .then((confirmationResult) => {
-                window.confirmationResult = confirmationResult;
-                alert('OTP sent successfully!');
-            })
-            .catch((error) => {
-                console.error("Error during signInWithPhoneNumber", error);
-                alert("Failed to send OTP");
-            });
+        try {
+            const confirmationResult = await firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier);
+            window.confirmationResult = confirmationResult;
+            alert('OTP sent successfully!');
+        } catch (error) {
+            console.error("Error during signInWithPhoneNumber", error);
+            alert(`Failed to send OTP: ${error.message}`);
+        }
     };
 
-    const handleVerifyOTP = () => {
-        window.confirmationResult.confirm(otp).then(() => {
+    const handleVerifyOTP = async () => {
+        try {
+            await window.confirmationResult.confirm(otp);
             alert("Verification successful");
             navigate('/'); // Redirect to home page upon successful verification
-        }).catch((error) => {
+        } catch (error) {
             console.error("Error during confirmationResult.confirm", error);
-            alert("Verification failed");
-        });
+            alert(`Verification failed: ${error.message}`);
+        }
     };
 
     useEffect(() => {
