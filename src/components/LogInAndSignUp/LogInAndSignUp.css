@@ -277,3 +277,18 @@
   color: #3c97bf;
   text-decoration: none;
 }
+
+
+.modal-header, .modal-footer {
+  border: none;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+

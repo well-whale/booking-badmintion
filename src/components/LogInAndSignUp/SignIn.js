@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SignUpForm from "./SignUp"; // Ensure SignUpForm is correctly imported
 import "../LogInAndSignUp/LogInAndSignUp.css"; 
 import { FcGoogle,FcPhone  } from "react-icons/fc";
+import { NavLink } from "react-router-dom";
 
 function SignInForm() {
   const [state, setState] = useState({
@@ -31,8 +32,8 @@ function SignInForm() {
       <form onSubmit={handleOnSubmit}>
         <h1>Sign in</h1>
         <div className="social-container">
-          <a href="#" className="social"><FcGoogle /></a>
-          <a href="#" className="social"><FcPhone/></a>
+          <NavLink to="/LoginPopup"className="social"><FcGoogle /></NavLink>
+          <NavLink to="/LoginPopup"className="social"><FcPhone /></NavLink>
         </div>
         <span>or use your account</span>
         <input

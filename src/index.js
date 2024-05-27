@@ -19,6 +19,7 @@ import Search from './components/HomePage/Search';
 import BookedList from './components/Booked/BookedList';
 import TimeSlots from './components/time/TimeSlot';
 import CourtReview from './components/Court/CourtReview';
+import LoginPopup from './components/LogInAndSignUp/LoginWithPhone';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const Home = () => {
     return (
@@ -79,6 +80,7 @@ root.render(
         <Route path="search" element={<Searchs />} />
         <Route path="booked" element={<><Header/><BookedList /></>} />
         <Route path="booking" element={<><Header/><TimeSlots /></>} />
+        <Route path="loginpopup" element={<><LoginPopup/></>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
