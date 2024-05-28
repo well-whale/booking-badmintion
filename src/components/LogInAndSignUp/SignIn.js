@@ -32,7 +32,7 @@ function SignInForm() {
       <form onSubmit={handleOnSubmit}>
         <h1>Sign in</h1>
         <div className="social-container">
-          <NavLink to="/LoginPopup"className="social"><FcGoogle /></NavLink>
+          <NavLink to="/GoogleOAuth"className="social"><FcGoogle /></NavLink>
           <NavLink to="/LoginPopup"className="social"><FcPhone /></NavLink>
         </div>
         <span>or use your account</span>

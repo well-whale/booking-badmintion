@@ -105,12 +105,12 @@ const SearchList = () => {
                   </h4>
                 </div>
                 <p>{court.address}</p>
-                <div class="subcourt-container">
-                  <div class="subcourt">
-                    <p class="subcourt-icon"><GiTennisCourt /></p>
+                <div className="subcourt-container">
+                  <div className="subcourt">
+                    <p className="subcourt-icon"><GiTennisCourt /></p>
                     <p>{court.subcourt}</p>
                   </div>
-                  <div class="rater-container">
+                  <div className="rater-container">
                     <h5>
                       <Rater
                         style={{ fontSize: "18px", color: "yellow", marginRight: "15px", weight: '50%' }}

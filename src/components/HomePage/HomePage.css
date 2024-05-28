@@ -176,6 +176,7 @@ nav {
 .subcourt {
   display: flex;
   align-items: center;
+  font-size: larger;
 }
 .subcourt p {
   margin: 0;

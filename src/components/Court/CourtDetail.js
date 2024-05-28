@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import ReactImageGallery from "react-image-gallery";
 import Rater from "react-rater";
+import Rating from '@mui/material/Rating';
 import "react-rater/lib/react-rater.css";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../Court/CourtDetail.css";
@@ -52,8 +53,9 @@ const ProductDetail = () => {
     address: "50 Xô Viết Nghệ Tĩnh, Phường 19, Bình Thạnh, Thành phố Hồ Chí Minh",
     phoneNumber: "03456789",
     socialMedia: "Facebook",
-    price: "Từ 50.000 vnđ/h/sân."
-  };
+    price: "Từ 50.000 vnđ/h/sân.",
+    star:5
+  };  
 
   return (
     <section className="product-detail-container">
@@ -70,12 +72,7 @@ const ProductDetail = () => {
         <div className="amenities-container">
           <h2 className="product-title">{productDetailItem.title}<div className="rating-container">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <Rater
-                style={{ fontSize: "20px", color: "yellow", marginRight: "15px" }} // Đặt margin-right để tạo khoảng cách giữa Rater và biểu tượng trái tim
-                total={5}
-                interactive={false}
-                rating={4}
-              />
+            <Rating name="read-only" value={productDetailItem.star} readOnly />
               <div
                 style={{ fontSize: "20px", color: isFavorited ? "red" : "grey", cursor: "pointer" }}
                 onClick={toggleFavorite}

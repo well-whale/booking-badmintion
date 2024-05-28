@@ -5,6 +5,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 import Header from './components/HomePage/Header';
@@ -20,6 +21,8 @@ import BookedList from './components/Booked/BookedList';
 import TimeSlots from './components/time/TimeSlot';
 import CourtReview from './components/Court/CourtReview';
 import LoginPopup from './components/LogInAndSignUp/LoginWithPhone';
+import GoogleOAuth from './components/LogInAndSignUp/Google_OAuth';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const Home = () => {
     return (
@@ -49,6 +52,15 @@ const Home = () => {
       </>
     );
   };
+  const OAuth = () => {
+    return (
+      <>
+        <GoogleOAuthProvider clientId="21328047732-02qfv7vb9ku5n0ov51v8d3k8vqb7e1ab.apps.googleusercontent.com">
+          <GoogleOAuth/>  
+        </GoogleOAuthProvider>
+      </>
+    )
+  }
   const Payment = () => {
     return (
       <>
@@ -81,6 +93,7 @@ root.render(
         <Route path="booked" element={<><Header/><BookedList /></>} />
         <Route path="booking" element={<><Header/><TimeSlots /></>} />
         <Route path="loginpopup" element={<><LoginPopup/></>} />
+        <Route path="GoogleOAuth" element={<><OAuth/></>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

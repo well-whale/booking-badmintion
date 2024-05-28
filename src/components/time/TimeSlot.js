@@ -77,7 +77,7 @@ const TimeSlots = () => {
   const areas = generateAreas(courtDetail.numberofcourt);
 
   const selectedTimeRange = startTime !== null && endTime !== null
-    ? `${String(Math.floor(startTime / 60)).padStart(2, "0")}:${String(startTime % 60).padStart(2, "0")} - ${String(Math.floor(endTime / 60)).padStart(2, "0")}:${String(endTime % 60).padStart(2, "0")}`
+    ? `${String(Math.floor(startTime / 60)).padStart(2, "0 ")}:${String(startTime % 60).padStart(2, "0")} - ${String(Math.floor(endTime / 60)).padStart(2, "0")}:${String(endTime % 60).padStart(2, "0")}`
     : '';
 
   const totalPrice = selectedTimes.length > 0 ? ((endTime - startTime) / 60 * courtDetail.price*2) : 0;
