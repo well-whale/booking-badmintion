@@ -39,7 +39,8 @@ const TimeSlots = () => {
   const [selectedArea, setSelectedArea] = useState("Sân 1");
   const [selectedTimes, setSelectedTimes] = useState([]);
   const [firstSelected, setFirstSelected] = useState(null);
-  const [timeSlots, setTimeSlots] = useState([]);
+  const [timeSlotsAM, setTimeSlotsAM] = useState([]);
+  const [timeSlotsPM, setTimeSlotsPM] = useState([]);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
 
@@ -47,7 +48,8 @@ const TimeSlots = () => {
     const startTime = courtDetail.clockStart * 60; // 5:00 AM in minutes
     const endTime = courtDetail.clockEnd * 60; // 11:00 PM in minutes
     const interval = 30; // 30 minutes interval
-    setTimeSlots(generateTimeSlots(startTime, endTime, interval));
+    setTimeSlotsAM(generateTimeSlots(startTime, 12 * 60, interval));
+    setTimeSlotsPM(generateTimeSlots(12.5 * 60, endTime, interval));
   }, []);
 
   const handleAreaChange = (event) => {
@@ -80,13 +82,26 @@ const TimeSlots = () => {
     ? `${String(Math.floor(startTime / 60)).padStart(2, "0 ")}:${String(startTime % 60).padStart(2, "0")} - ${String(Math.floor(endTime / 60)).padStart(2, "0")}:${String(endTime % 60).padStart(2, "0")}`
     : '';
 
-  const totalPrice = selectedTimes.length > 0 ? ((endTime - startTime) / 60 * courtDetail.price*2) : 0;
+  const totalPrice = selectedTimes.length > 0 ? ((endTime - startTime) / 60 * courtDetail.price * 2) : 0;
 
   return (
     <div className="container">
       <div className="left-section">
+        <h3>Ca Sáng </h3>
         <div id="time-slots" className="times-container">
-          {timeSlots.map(({ timeString, id }) => (
+          {timeSlotsAM.map(({ timeString, id }) => (
+            <div
+              key={id}
+              className={`time ${selectedTimes.includes(id) ? "selected" : ""}`}
+              onClick={() => toggleTimeSlot(id)}
+            >
+              {timeString}
+            </div>
+          ))}
+        </div>
+        <h3>Ca Chiều </h3>
+        <div id="time-slots" className="times-container">
+          {timeSlotsPM.map(({ timeString, id }) => (
             <div
               key={id}
               className={`time ${selectedTimes.includes(id) ? "selected" : ""}`}

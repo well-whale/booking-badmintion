@@ -3,13 +3,15 @@ import "../HomePage/HomePage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { NavLink } from "react-router-dom";
+import logo from "../img/Remove-bg.ai_1716950971549.png";
 
 const Header = () => {
     return (
         <div className='Header'>
             <nav>
                 <div className="nav__logo">
-                    BadmintonHub <i className="fa-sharp fa-regular fa-badminton"></i>
+                    <img src={logo} alt="BadmintonHub Logo" />
+                    <span className="nav__logo-text">BadmintonHub</span>
                 </div>
                 <ul className="nav__links">
                     <li className="link"><NavLink to="/">Home</NavLink></li>
